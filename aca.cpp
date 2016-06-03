@@ -139,7 +139,6 @@ int main(){
 		cout<<endl<<"V.row("<<k<<")"<<V.row(k)<<endl<<"U.col("<<k<<")"<<U.col(k)<<endl;
 
 		z = z + V.row(k).squaredNorm()*U.col(k).squaredNorm() +abs_scalar(U,V,rank);
-	cout<<endl<<"abs"<<abs_scalar(U,V,rank)<<endl<<V.row(k).squaredNorm()*U.col(k).squaredNorm()<<endl;
 		cout<<endl<<"Squared Norm: "<<z<<endl;
 	
 		epsilon = (U.col(k).norm()*V.row(k).norm())/sqrt(z);
