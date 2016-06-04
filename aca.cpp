@@ -123,13 +123,17 @@ int main(){
 		if(J(k) == -1){
 			break;
 		}else{
-			V.row(k)= R.row(I(k))/R(I(k),J(k));
-			R.col(J(k)) = Z.col(J(k));
-			for(int d=0;d<k;d++){
-				R.col(J(k)) = R.col(J(k)) - V(d,J(k))*U.col(d);
+			if(abs(R(I(k),J(k))) < epsilon){
+			//TODO: Code of |R(i,j)| < epsilon
+			}else{
+				V.row(k)= R.row(I(k))/R(I(k),J(k));
+				R.col(J(k)) = Z.col(J(k));
+				for(int d=0;d<k;d++){
+					R.col(J(k)) = R.col(J(k)) - V(d,J(k))*U.col(d);
+				}
 			}
 		}
-	
+
 		U.col(k) = R.col(J(k));
 		cout<<endl<<"V:"<<endl<<V<<endl<<endl<<"U:"<<endl<<U<<endl;
 		
